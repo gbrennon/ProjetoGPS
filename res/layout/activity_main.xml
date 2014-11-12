@@ -17,19 +17,19 @@
         android:text="@string/gps_button" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/navigationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/navigation_button" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/configurationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/configuration_button" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/creditsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/credit_button" />
