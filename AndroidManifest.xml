@@ -45,7 +45,6 @@
         android:label="@string/title_activity_navigation"
         android:theme="@android:style/Theme.NoTitleBar">
     </activity>
-    <uses-library android:name="com.google.android.maps"/>
   </application>
 
 </manifest>
