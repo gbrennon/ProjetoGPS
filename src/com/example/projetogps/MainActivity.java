@@ -1,16 +1,38 @@
 package com.example.projetogps;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+	Button gpsButton, navigationButton, configurationButton, creditsButton;
+	Intent intent;
+	final Context context = this;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);		
+		addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);
+	}
+
+	private void addListenerOnButton(Button button, int viewId, final Class<?> cls) {
+		// Método para linkar o botão com sua Activity! Utilizem ele!
+		button = (Button) findViewById(viewId);
+		button.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				intent = new Intent(context, cls);
+				startActivity(intent);
+			}
+		});		
 	}
 
 	@Override
