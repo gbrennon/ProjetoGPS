@@ -3,6 +3,8 @@ package com.example.projetogps;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,11 +17,15 @@ public class MainActivity extends Activity {
 	Button gpsButton, navigationButton, configurationButton, creditsButton;
 	Intent intent;
 	final Context context = this;
+	private LocationManager locManager;
+	private LocationProvider locProvider;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);		
+		setContentView(R.layout.activity_main);
+		locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		locProvider = locManager.getProvider(LocationManager.GPS_PROVIDER);
 		addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);
 	}
 
