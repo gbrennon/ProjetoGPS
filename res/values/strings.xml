@@ -8,5 +8,6 @@
     <string name="navigation_button">Navegação em Tempo Real</string>
     <string name="configuration_button">Configuração</string>
     <string name="credit_button">Créditos</string>
+    <string name="title_activity_navigation">Tela de Navegação</string>
 
 </resources>
