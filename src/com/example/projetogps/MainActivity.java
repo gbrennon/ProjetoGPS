@@ -25,9 +25,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-    gps = new GPS(this);
-    gps.setContext(context);
-    gps.showSettingsAlert();
+    //gps = new GPS(this);
+    //gps.setContext(context);
+    //GPS.showSettingsAlert();
 		//locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 		//locProvider = locManager.getProvider(LocationManager.GPS_PROVIDER);
 		addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);

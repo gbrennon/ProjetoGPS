@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Projeto GPS</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="gps_button">Tela do GPS</string>
-    <string name="navigation_button">Navegação em Tempo Real</string>
-    <string name="configuration_button">Configuração</string>
-    <string name="credit_button">Créditos</string>
-    <string name="title_activity_navigation">Tela de Navegação</string>
+  <string name="app_name">Projeto GPS</string>
+  <string name="hello_world">Hello world!</string>
+  <string name="action_settings">Settings</string>
+  <string name="gps_button">Tela do GPS</string>
+  <string name="navigation_button">Navegação em Tempo Real</string>
+  <string name="configuration_button">Configuração</string>
+  <string name="credit_button">Créditos</string>
+  <string name="title_activity_navigation">Tela de Navegação</string>
   <string name="latitudeTextView">Latitude</string>
   <string name="longitudeTextView">Longitude</string>
-
+  <string name="altitudeTextView">Altitude</string>
 </resources>
