@@ -19,20 +19,26 @@ public class MainActivity extends Activity {
 	final Context context = this;
 	private LocationManager locManager;
 	private LocationProvider locProvider;
+  private GPS gps;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-		locProvider = locManager.getProvider(LocationManager.GPS_PROVIDER);
+    gps = new GPS(this);
+    gps.setContext(context);
+    gps.showSettingsAlert();
+		//locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		//locProvider = locManager.getProvider(LocationManager.GPS_PROVIDER);
 		addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);
-	}
+    addListenerOnButton(gpsButton, R.id.gpsButton, GPSActivity.class);
+    //showSettingsAlert(locManager);
+  }
 
-	private void addListenerOnButton(Button button, int viewId, final Class<?> cls) {
-		// Método para linkar o botão com sua Activity! Utilizem ele!
-		button = (Button) findViewById(viewId);
-		button.setOnClickListener(new OnClickListener() {
+  private void addListenerOnButton(Button button, int viewId, final Class<?> cls) {
+    // Método para linkar o botão com sua Activity! Utilizem ele!
+    button = (Button) findViewById(viewId);
+    button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				intent = new Intent(context, cls);

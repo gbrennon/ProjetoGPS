@@ -9,5 +9,7 @@
     <string name="configuration_button">Configuração</string>
     <string name="credit_button">Créditos</string>
     <string name="title_activity_navigation">Tela de Navegação</string>
+  <string name="latitudeTextView">Latitude</string>
+  <string name="longitudeTextView">Longitude</string>
 
 </resources>

@@ -45,6 +45,7 @@
         android:label="@string/title_activity_navigation"
         android:theme="@android:style/Theme.NoTitleBar">
     </activity>
+    <activity android:name=".GPSActivity" android:label="GPS Activity"/>
   </application>
 
 </manifest>
