@@ -4,4 +4,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true">
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/glauber_button"
+        android:id="@+id/glauberButton"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fabinho_button"
+        android:id="@+id/fabinhoButton"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/matheus_button"
+        android:id="@+id/matheusButton"/>
+  </LinearLayout>
 </RelativeLayout>

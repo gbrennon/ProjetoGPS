@@ -46,6 +46,8 @@
         android:theme="@android:style/Theme.NoTitleBar">
     </activity>
     <activity android:name=".GPSActivity" android:label="GPS Activity"/>
+    <activity android:name=".CreditsActivity"/>
+    <activity android:name=".ConfigurationActivity"/>
   </application>
 
 </manifest>

@@ -96,6 +96,7 @@ public final class GPS {
   }
 
   public static String getAltitude(Location location) {
+    System.out.println(location.getAltitude());
     return String.valueOf(location.getAltitude());
   }
 

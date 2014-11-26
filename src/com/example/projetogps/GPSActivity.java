@@ -27,9 +27,9 @@ public class GPSActivity extends Activity implements LocationListener {
     latituteField = (TextView) findViewById(R.id.latitudeTextField);
     longitudeField = (TextView) findViewById(R.id.longitudeTextField);
     altitudeField = (TextView) findViewById(R.id.altitudeTextField);
-    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     Criteria criteria = new Criteria();
     provider = locationManager.getBestProvider(criteria, false);
+    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     Location location = locationManager.getLastKnownLocation(provider);
 
     gps = new GPS(this);
@@ -51,7 +51,7 @@ public class GPSActivity extends Activity implements LocationListener {
   @Override
   protected void onResume() {
     super.onResume();
-    locationManager.requestLocationUpdates(provider, 400, 1, this);
+    locationManager.requestLocationUpdates(provider, 0, 0, this);
   }
 
   /* Remove the locationlistener updates when Activity is paused */
