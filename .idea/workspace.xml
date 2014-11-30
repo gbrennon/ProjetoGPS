@@ -22,12 +22,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.projetogps" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ba7888-c4bd-452e-a6d2-5b9e58873285" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/projetogps/ConfigurationActivity.java" afterPath="$PROJECT_DIR$/src/com/example/projetogps/ConfigurationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/projetogps/GPS.java" afterPath="$PROJECT_DIR$/src/com/example/projetogps/GPS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/projetogps/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/example/projetogps/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="57ba7888-c4bd-452e-a6d2-5b9e58873285" name="Default" comment="" />
     <ignored path="ProjetoGPS.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
