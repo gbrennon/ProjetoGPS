@@ -12,4 +12,13 @@
   <string name="latitudeTextView">Latitude</string>
   <string name="longitudeTextView">Longitude</string>
   <string name="altitudeTextView">Altitude</string>
+  <string name="exit_button">Sair</string>
+  <string name="glauber_button">Gláuber Brennon</string>
+  <string name="fabinho_button">Fábio Santana</string>
+  <string name="matheus_button">Matheus Pereira</string>
+  <string name="decimals_radio">Graus decimais</string>
+  <string name="minutes_radio">Graus, Minutos decimais</string>
+  <string name="seconds_radio">Graus, Minutos, Segundos decimais</string>
+  <string name="title_text">Configurações</string>
+  <string name="setConfigButton">Confirma</string>
 </resources>

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -23,10 +24,33 @@ public final class GPS {
   private static TextView longitudeField;
   private static final long serialVersionUID = 1L;
   private static TextView altitudeField;
+  private static SharedPreferences preferences;
 
   public GPS(Context context) {
     super();
     GPS.context = context;
+  }
+
+  public static void getLocationFormatFromPreferences(Context context) {
+    preferences = context.getSharedPreferences("GPS Config", Context.MODE_PRIVATE);
+    String locationFormat = preferences.getString("LocationFormat", null);
+    if (locationFormat != null) {
+      if (locationFormat.equals("FORMAT_MINUTES"))
+        GPS.setLocationFormat(Location.FORMAT_MINUTES);
+      else if (locationFormat.equals("FORMAT_SECONDS"))
+        GPS.setLocationFormat(Location.FORMAT_SECONDS);
+      else {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("LocationFormat", "FORMAT_DEGREES");
+        editor.apply();
+        GPS.setLocationFormat(Location.FORMAT_DEGREES);
+      }
+    } else {
+      SharedPreferences.Editor editor = preferences.edit();
+      editor.putString("LocationFormat", "FORMAT_DEGREES");
+      editor.apply();
+      GPS.setLocationFormat(Location.FORMAT_DEGREES);
+    }
   }
 
   public static int getLocationFormat() {
@@ -96,11 +120,20 @@ public final class GPS {
   }
 
   public static String getAltitude(Location location) {
+    System.out.println(location.getAltitude());
     return String.valueOf(location.getAltitude());
   }
 
   public static void setLocationFormat(int locationFormat) {
     GPS.locationFormat = locationFormat;
+    SharedPreferences.Editor editor = preferences.edit();
+    if (locationFormat == Location.FORMAT_MINUTES)
+      editor.putString("LocationFormat", "FORMAT_MINUTES");
+    else if (locationFormat == Location.FORMAT_SECONDS)
+      editor.putString("LocationFormat", "FORMAT_SECONDS");
+    else
+      editor.putString("LocationFormat", "FORMAT_DEGREES");
+    editor.apply();
   }
 
   public static void showSettingsAlert(LocationManager locationManager) {

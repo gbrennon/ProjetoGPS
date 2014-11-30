@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-	Button gpsButton, navigationButton, configurationButton, creditsButton;
+	Button gpsButton, navigationButton, configurationButton, creditsButton, exitButton;
 	Intent intent;
 	final Context context = this;
 	private LocationManager locManager;
@@ -25,14 +25,22 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-    //gps = new GPS(this);
-    //gps.setContext(context);
-    //GPS.showSettingsAlert();
-		//locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-		//locProvider = locManager.getProvider(LocationManager.GPS_PROVIDER);
-		addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);
+
+    addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);
     addListenerOnButton(gpsButton, R.id.gpsButton, GPSActivity.class);
-    //showSettingsAlert(locManager);
+    addListenerOnButton(creditsButton, R.id.creditsButton, CreditsActivity.class);
+    addListenerOnButton(configurationButton, R.id.configurationButton, ConfigurationActivity.class);
+
+    exitButton = (Button) findViewById(R.id.exitButton);
+    exitButton.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        finish();
+        System.exit(0);
+      }
+    });
+
+    GPS.getLocationFormatFromPreferences(context);
   }
 
   private void addListenerOnButton(Button button, int viewId, final Class<?> cls) {
