@@ -27,8 +27,19 @@ public class ConfigurationActivity extends Activity {
     configButton = (Button) findViewById(R.id.setConfigButton);
 
     addListenerOnButton(configButton);
+
+    setCurrentConfigRadio();
   }
 
+  private void setCurrentConfigRadio() {
+    if (GPS.getLocationFormat() == Location.FORMAT_DEGREES)
+      radioConfigurationGroup.check(R.id.radioDecimals);
+    else if (GPS.getLocationFormat() == Location.FORMAT_MINUTES)
+      radioConfigurationGroup.check(R.id.radioMinutes);
+    else
+      radioConfigurationGroup.check(R.id.radioSeconds);
+
+  }
   private void addListenerOnButton(Button button) {
     // Método para linkar o botão com sua Activity! Utilizem ele!
     button.setOnClickListener(new View.OnClickListener() {

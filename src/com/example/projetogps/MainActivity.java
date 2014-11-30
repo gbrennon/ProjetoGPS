@@ -3,7 +3,6 @@ package com.example.projetogps;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.Bundle;
@@ -27,9 +26,6 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-    SharedPreferences sharedPreferences = getSharedPreferences("GPS Config", Context.MODE_PRIVATE);
-    //TODO shared preference
-
     addListenerOnButton(navigationButton, R.id.navigationButton, NavigationActivity.class);
     addListenerOnButton(gpsButton, R.id.gpsButton, GPSActivity.class);
     addListenerOnButton(creditsButton, R.id.creditsButton, CreditsActivity.class);
@@ -43,6 +39,8 @@ public class MainActivity extends Activity {
         System.exit(0);
       }
     });
+
+    GPS.getLocationFormatFromPreferences(context);
   }
 
   private void addListenerOnButton(Button button, int viewId, final Class<?> cls) {
