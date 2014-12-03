@@ -21,4 +21,6 @@
   <string name="seconds_radio">Graus, Minutos, Segundos decimais</string>
   <string name="title_text">Configurações</string>
   <string name="setConfigButton">Confirma</string>
+  <string name="azimuthTextView">New Text</string>
+  <string name="satellite1AzimuthView">Satelite Azimuth</string>
 </resources>

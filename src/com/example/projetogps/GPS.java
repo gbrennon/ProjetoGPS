@@ -34,17 +34,17 @@ public final class GPS {
   public static void getLocationFormatFromPreferences(Context context) {
     preferences = context.getSharedPreferences("GPS Config", Context.MODE_PRIVATE);
     String locationFormat = preferences.getString("LocationFormat", null);
-    if (locationFormat != null) {
-      if (locationFormat.equals("FORMAT_MINUTES"))
-        GPS.setLocationFormat(Location.FORMAT_MINUTES);
-      else if (locationFormat.equals("FORMAT_SECONDS"))
-        GPS.setLocationFormat(Location.FORMAT_SECONDS);
-      else {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("LocationFormat", "FORMAT_DEGREES");
-        editor.apply();
-        GPS.setLocationFormat(Location.FORMAT_DEGREES);
-      }
+      if (locationFormat != null) {
+        if (locationFormat.equals("FORMAT_MINUTES"))
+          GPS.setLocationFormat(Location.FORMAT_MINUTES);
+        else if (locationFormat.equals("FORMAT_SECONDS"))
+          GPS.setLocationFormat(Location.FORMAT_SECONDS);
+        else {
+          SharedPreferences.Editor editor = preferences.edit();
+          editor.putString("LocationFormat", "FORMAT_DEGREES");
+          editor.apply();
+          GPS.setLocationFormat(Location.FORMAT_DEGREES);
+        }
     } else {
       SharedPreferences.Editor editor = preferences.edit();
       editor.putString("LocationFormat", "FORMAT_DEGREES");
