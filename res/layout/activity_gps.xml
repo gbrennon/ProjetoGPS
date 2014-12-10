@@ -5,7 +5,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context="com.example.projetogps.GPSActivity">
+              tools:context="com.example.projetogps.GPSActivity" android:weightSum="1">
 
   <TextView
       android:layout_width="wrap_content"
@@ -41,33 +41,13 @@
       android:textAppearance="?android:attr/textAppearanceLarge"
       android:text="Satelites"
       android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/satellite1AzimuthView"
-            android:id="@+id/satellite1AzimuthView"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/satellite1AzimuthTextField"
-            android:layout_gravity="center_horizontal"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:text="Satelite PRN"
-            android:id="@+id/satellite1PrnView"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/satellite1PrnTextField"
-            android:layout_gravity="center_horizontal"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:text="Satelite SNR"
-            android:id="@+id/satellite1SNRView"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/satellite1SNRTextField"
-            android:layout_gravity="center_horizontal"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:text="Satelite Elevação"
-            android:id="@+id/satellite1ElevationView"/>
-  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/satellite1ElevationTextField"
-            android:layout_gravity="center_horizontal"/>
+  <ExpandableListView
+      android:layout_width="match_parent"
+      android:layout_height="210dp"
+      android:id="@+id/expandableListView" android:layout_gravity="center_horizontal" android:layout_weight="0.86"/>
   <Button
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Prox Satellite"
-      android:id="@+id/satelliteButton" android:layout_gravity="center_horizontal"/>
+      android:text="New Button"
+      android:id="@+id/button" android:layout_gravity="center_horizontal"/>
 </LinearLayout>

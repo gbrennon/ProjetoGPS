@@ -66,7 +66,7 @@ public class NavigationActivity extends Activity implements LocationListener {
         onLocationChanged(location);
       }
 
-      map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 10));
+      map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15));
 
       map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
         @Override
