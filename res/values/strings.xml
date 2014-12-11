@@ -23,4 +23,6 @@
   <string name="setConfigButton">Confirma</string>
   <string name="azimuthTextView">New Text</string>
   <string name="satellite1AzimuthView">Satelite Azimuth</string>
+  <string name="connected_satellites_view">Satelites Conectados</string>
+  <string name="visibleSatelliteTextView">Satelites Visíveis</string>
 </resources>

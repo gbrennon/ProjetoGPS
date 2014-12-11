@@ -1,7 +1,9 @@
 package com.example.projetogps;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Activity;
@@ -13,9 +15,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +31,10 @@ public class GPSActivity extends Activity implements LocationListener, GpsStatus
   private HashMap<String, List<String>> listData;
   private GpsStatus gpsStatus;
   private Iterable<GpsSatellite> sats;
-  private Button button;
+  private TextView connectedSatelliteTextField;
+  private TextView visibleSatelliteTextField;
+  private Collection<Satellite> connectedSatellites;
+  private LinearLayout listContent;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class GPSActivity extends Activity implements LocationListener, GpsStatus
     provider = locationManager.getBestProvider(criteria, false);
     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     Location location = locationManager.getLastKnownLocation(provider);
+    connectedSatellites = new LinkedList<Satellite>();
+    listContent = (LinearLayout) findViewById(R.id.scrollLinearLayout);
 
     gps = new GPS(this);
     gps.setContext(this);
@@ -52,18 +57,6 @@ public class GPSActivity extends Activity implements LocationListener, GpsStatus
     GPS.setFields(latituteField, longitudeField, altitudeField);
     GPS.showSettingsAlert(locationManager);
 
-    button = (Button) findViewById(R.id.button);
-
-    button.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        buildList();
-      }
-    });
-
-    buildList();
-    ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
-    expandableListView.setAdapter(new ExpandableAdapter(GPSActivity.this, listGroup, listData));
 
     // Initialize the location fields
     if (location != null) {
@@ -106,7 +99,6 @@ public class GPSActivity extends Activity implements LocationListener, GpsStatus
   public void onProviderEnabled(String provider) {
     Toast.makeText(this, "Enabled new provider " + provider,
       Toast.LENGTH_SHORT).show();
-
   }
 
   @Override
@@ -154,5 +146,32 @@ public class GPSActivity extends Activity implements LocationListener, GpsStatus
 
   @Override
   public void onGpsStatusChanged(int event) {
+    GpsStatus gpsStatus = locationManager.getGpsStatus(null);
+    sats = gpsStatus.getSatellites();
+    int connectedSatellitesCont = 0;
+    int visibleSatellites = 0;
+    connectedSatelliteTextField = (TextView) findViewById(R.id.connectedSatelliteTextField);
+    visibleSatelliteTextField = (TextView) findViewById(R.id.visibleSatelliteTextField);
+    Satellite currentSatellite;
+
+    TextView satelliteField;
+
+    listContent.removeAllViews();
+
+    for (GpsSatellite sat : sats) {
+      connectedSatelliteTextField.setText(String.valueOf(connectedSatellitesCont));
+      visibleSatellites++;
+      if (sat.usedInFix()) {
+        connectedSatellitesCont++;
+        currentSatellite = new Satellite(sat, connectedSatellitesCont);
+        connectedSatellites.add(currentSatellite);
+        satelliteField = new TextView(this);
+        satelliteField.setText(currentSatellite.toString());
+        listContent.addView(satelliteField);
+      }
+    }
+
+    connectedSatelliteTextField.setText(String.valueOf(connectedSatellitesCont));
+    visibleSatelliteTextField.setText(String.valueOf(visibleSatellites));
   }
 }
